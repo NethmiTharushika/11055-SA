@@ -2,16 +2,16 @@ package design.pattern.command;
 
 public class LightDimCommand implements Command{
     Light light;
-    int newBrightness ;
+    int  level ;
     int previousBrightness;
-    public LightDimCommand( Light light, int level){
+    public LightDimCommand( Light light, int newBrightness ){
         this.light = light;
-        this.newBrightness = level;
+        this.level = newBrightness;
     }
     @Override
     public void execute(){
         previousBrightness =light.getLevel();
-        light.dim(newBrightness);}
+        light.dim(level);}
 
     public void undo() {
         light.dim(previousBrightness);
